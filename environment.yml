@@ -1,0 +1,12 @@
+name: vision-dataset-viewer
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11  # Or your preferred version
+  - pyqt
+  - pyqtgraph
+  - opencv
+  - pip
+  - pip:
+      - numpy  # Only if not satisfied by conda
