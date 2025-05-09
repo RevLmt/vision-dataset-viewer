@@ -184,11 +184,11 @@ class DatasetViewer(QtWidgets.QWidget):
             self.plot.addItem(rect)
 
             # Draw label text
-            text = QtWidgets.QGraphicsTextItem(str(cls))
-            text.setDefaultTextColor(color)#QtGui.QColor('yellow'))
-            text.setPos(x1, y2_flipped + 2)
-            text.setTransform(QtGui.QTransform().scale(1, -1))  # Slightly above the box
-            self.plot.addItem(text)
+            # text = QtWidgets.QGraphicsTextItem(str(cls))
+            # text.setDefaultTextColor(color)#QtGui.QColor('yellow'))
+            # text.setPos(x1, y2_flipped + 2)
+            # text.setTransform(QtGui.QTransform().scale(1, -1))  # Slightly above the box
+            # self.plot.addItem(text)
 
         self.label.setText(f"{self.index + 1}/{len(self.image_files)}: {self.image_files[self.index]}")
 
