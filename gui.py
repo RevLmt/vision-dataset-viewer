@@ -29,7 +29,7 @@ class DatasetViewer(QtWidgets.QWidget):
 
         # === Annotation format selector ===
         self.format_selector = QtWidgets.QComboBox()
-        self.format_selector.addItems(['COCO', 'YOLO'])
+        self.format_selector.addItems(['YOLO','COCO'])
         self.format_selector.currentTextChanged.connect(self.on_format_change)
 
         layout.addWidget(QtWidgets.QLabel("Annotation Format:"))
@@ -62,7 +62,6 @@ class DatasetViewer(QtWidgets.QWidget):
         self.yaml_path_label = QtWidgets.QLineEdit()
         self.yaml_path_label.setReadOnly(True)
         self.yaml_path_label.setText("No .yaml file selected")
-        self.yaml_path_label.hide()
         path_layout_1 = QtWidgets.QHBoxLayout()
         path_layout_1.addWidget(QtWidgets.QLabel("Image Folder:"))
         path_layout_1.addWidget(self.image_path_label)
