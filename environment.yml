@@ -7,6 +7,7 @@ dependencies:
   - pyqt
   - pyqtgraph
   - opencv
+  - pyyaml
   - pip
   - pip:
       - numpy  # Only if not satisfied by conda
