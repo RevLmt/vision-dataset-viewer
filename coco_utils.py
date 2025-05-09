@@ -11,7 +11,7 @@ def load_coco_annotations(json_path, image_filename):
         image_filename (str): Name of the image file to extract annotations for.
 
     Returns:
-        boxes (list of tuples): List of (class_id, x1, y1, x2, y2)
+        boxes (list of tuples): List of (class_id or class_name, x1, y1, x2, y2)
     """
     if not os.path.exists(json_path):
         return []
@@ -25,8 +25,8 @@ def load_coco_annotations(json_path, image_filename):
     if image_id is None:
         return []
 
-    # Build category_id to contiguous id (0,1,2...) if needed
-    cat_id_map = {cat['id']: idx for idx, cat in enumerate(coco['categories'])}
+    # Create category_id to name lookup
+    category_id_to_name = {cat['id']: cat['name'] for cat in coco['categories']}
 
     boxes = []
     for ann in coco['annotations']:
@@ -40,7 +40,7 @@ def load_coco_annotations(json_path, image_filename):
         y1 = int(y)
         x2 = int(x + w)
         y2 = int(y + h)
-        class_id = cat_id_map.get(ann['category_id'], ann['category_id'])
-        boxes.append((class_id, x1, y1, x2, y2))
+        class_name = category_id_to_name.get(ann['category_id'], str(ann['category_id']))
+        boxes.append((class_name, x1, y1, x2, y2))
 
     return boxes
