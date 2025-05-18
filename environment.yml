@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.11  # Or your preferred version
-  - pyqt
+  - pyside6
   - pyqtgraph
   - opencv
   - pyyaml
